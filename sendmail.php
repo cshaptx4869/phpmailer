@@ -18,7 +18,6 @@
     $mail->Username = "你的163邮箱";
     $mail->Password = "不是密码哦,是授权码";   //163的授权码
     //$mail->IsSendmail(); //如果没有sendmail组件就注释掉，否则出现“Could not execute: /var/qmail/bin/sendmail ”的错误提示
-    $mail->AddReplyTo("你的163邮箱","发件人名");//添加回复地址
     $mail->From = "你的163邮箱"; //邮件发送者email地址
     $mail->FromName = "发件人名"; //发件人名称
     $to = "收件人邮箱";
@@ -27,6 +26,7 @@
     //$mail->AddCC('mail2@sina.com'); // 添加抄送人 
     //$mail->AddCC('mail3@qq.com');   // 添加多个抄送人 
     //$mail->AddBCC('mail4@qq.com');  // 添加密送者，Mail Header不会显示密送者信息
+    $mail->AddReplyTo("你的163邮箱","发件人名");//添加回复地址
     $mail->ConfirmReadingTo = '回执邮箱@163.com';  // 添加发送回执邮件地址，即当收件人打开邮件后，会询问是否发生回执 
     $mail->Subject = "phpmailer测试标题"; //邮件标题
     $mail->Body = "<h1>phpmail演示</h1>这是php点点通（<font color=red>发件人</font>）对phpmailer的测试内容"; //邮件内容
