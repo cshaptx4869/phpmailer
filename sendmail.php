@@ -36,6 +36,7 @@
     //$mail->AddAttachment('/tmp/image.jpg', 'one pic');  // 添加多个附件
     $mail->IsHTML(true); //是否使用HTML格式
     $mail->Send(); //发送邮件测试结果进了垃圾箱是因为$mail->AltBody这个问题，把 $mail->AltBody 一行代码注释掉就好了
+    $mail->ErrorInfo; 
     echo '邮件已发送';
     } catch (phpmailerException $e) {
     echo "邮件发送失败：".$e->errorMessage();
