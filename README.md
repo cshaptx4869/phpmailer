@@ -19,3 +19,8 @@ class.phpmailer.php
                   +----------------+                  +-----------------+   
                   
                                      Model for SMTP Use
+
+常见错误
+1.SMTP Error: Could not authenticate.
+  smtp验证没通过，就是smtp server 的用户名和密码不正确
+2.
