@@ -10,7 +10,7 @@
     $mail->CharSet='UTF-8'; //设置邮件的字符编码，这很重要，不然中文乱码
     $mail->Priority = 3; // 设置邮件优先级 1：高, 3：正常（默认）, 5：低  
     $mail->SetLanguage('zh_cn'); // 设置错误中文提示
-    $mail->SMTPSecure = 'tls';  // 设置启用加密，注意：必须打开 php_openssl 模块
+    $mail->SMTPSecure = 'tls';  // 设置启用加密，注意：必须打开 php_openssl 模块  TLS端口为587
     //$mail->SMTPSecure = 'ssl';  //设置使用ssl加密方式登录鉴权 163邮箱的ssl协议方式端口号是465/994
     $mail->SMTPAuth = true; //开启SMTP认证
     $mail->Port = 25; //邮箱服务器端口号
