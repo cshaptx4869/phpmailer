@@ -1,13 +1,14 @@
 <?php
     header("content-type:text/html;charset=utf-8");
     ini_set("magic_quotes_runtime",0);
-    require 'class.phpmailer.php';
+    require 'class.phpmailer.php'; //如果你想用它来群发邮件的话，记得修改包含文件函数，如： require_once('class.phpmailer.php') 否则的话会产生类的重定义。
     //require 'PHPMailer/PHPMailerAutoload.php';  
     try {
     $mail = new PHPMailer(true);
     $mail->IsSMTP(); //使用SMTP方式发送
     $mail->SMTPDebug = 1; //启用SMTP调试功能	1 = errors and messages	 2 = messages only
     $mail->CharSet='UTF-8'; //设置邮件的字符编码，这很重要，不然中文乱码
+    $mail->SMTPKeepAlive = true;  //保持连接,关闭则是SmtpClose()默认false.
     $mail->Priority = 3; // 设置邮件优先级 1：高, 3：正常（默认）, 5：低  
     $mail->SetLanguage('zh_cn'); // 设置错误中文提示
     $mail->SMTPSecure = 'tls';  // 设置启用加密，注意：必须打开 php_openssl 模块  TLS端口为587
@@ -36,7 +37,9 @@
     $mail->AddAttachment("test.txt"); //可以添加附件
     //$mail->AddAttachment('/tmp/image.jpg', 'one pic');  // 添加多个附件
     $mail->IsHTML(true); //是否使用HTML格式
-    $mail->Send(); //发送邮件测试结果进了垃圾箱是因为$mail->AltBody这个问题，把 $mail->AltBody 一行代码注释掉就好了
+    $mail->ClearAddresses(); //清除所有收件人地址,返回无效. 同时发送多封邮件时需要用到清除上一次收件人地址与回复地址 $mail->ClearAddresses(); 与$mail->ClearReplyTos();
+    $mail->ClearReplyTos();  //清除所有回复地址,返回无效.
+    $mail->Send(); //发送邮件测试结果进了垃圾箱是因为$mail->AltBody这个问题，把 $mail->AltBody 一行代码注释掉就好了 
     $mail->ErrorInfo; 
     echo '邮件已发送';
     } catch (phpmailerException $e) {
