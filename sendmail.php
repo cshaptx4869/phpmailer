@@ -2,6 +2,7 @@
     header("content-type:text/html;charset=utf-8");
     ini_set("magic_quotes_runtime",0);
     require 'class.phpmailer.php';
+    //require 'PHPMailer/PHPMailerAutoload.php';  
     try {
     $mail = new PHPMailer(true);
     $mail->IsSMTP(); //使用SMTP方式发送
