@@ -21,7 +21,7 @@
     //$mail->IsSendmail(); //如果没有sendmail组件就注释掉，否则出现“Could not execute: /var/qmail/bin/sendmail ”的错误提示
     $mail->From = "你的163邮箱"; //邮件发送者email地址
     $mail->FromName = "发件人名"; //发件人名称
-    //$mail->setFrom("xxx@163.com","Mailer");// 设置发件人信息，如邮件格式说明中的发件人，这里会显示为Mailer(xxxx@163.com），Mailer是当做名字显示
+    //$mail->setFrom("xxx@163.com","Mailer");// 简化上面两个属性 设置发件人信息，如邮件格式说明中的发件人，这里会显示为Mailer(xxxx@163.com），Mailer是当做名字显示
     $to = "收件人邮箱";
     $mail->AddAddress($to); //收件人地址
     //$mail->AddAddress('ellen@example.com','wang'); // 添加多个接受者
