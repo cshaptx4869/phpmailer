@@ -55,3 +55,9 @@ SMTP Error: Could not connect to SMTP host. Message could not be sent.Mailer Err
    use phpmailer\phpmailer; 
    这里有一个问题，thinkphp5的扩展类的定义是，类文件命名为：phpmailer.php而不是class.phpmailer.php。
  
+ 9.SMTP -> NOTICE: EOF caught while checking if connectedThe following From address failed: xxx@xxx.xxx SMTP -> ERROR: EHLO not accepted from server:
+  出现上面的错误,很可能是被服务器禁掉了
+  
+ 10. 
+ 
+ 
